@@ -33,7 +33,7 @@ jobs:
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
-          SNYK_TOKEN: ${{ 8c9b4853-c752-4844-89b1-e1f2162baaae }}
+          SNYK_TOKEN: ${ 8c9b4853-c752-4844-89b1-e1f2162baaae }
 
       - run: make setup
       - run: make test
