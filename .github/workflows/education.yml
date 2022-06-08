@@ -24,8 +24,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      
       - uses: actions/setup-node@v3.3.0
+        with:
+          node-version: 14
+          cache: 'npm'
+      
+      
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ 8c9b4853-c752-4844-89b1-e1f2162baaae }}
 
       - run: make setup
       - run: make test
